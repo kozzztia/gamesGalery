@@ -7,9 +7,9 @@ function App() {
       <Navigation />
       <Routes>
         <Route path='/' element={<Test game="indie" />} />
-        <Route path='/test2' element={<Test game="action" />} />
-        <Route path='/test3' element={<Test game="strategy" />} />
-        <Route path='/test4' element={<Test game="shooter" />} />
+        <Route path='/action' element={<Test game="action" />} />
+        <Route path='/strategy' element={<Test game="strategy" />} />
+        <Route path='/shooter' element={<Test game="shooter" />} />
       </Routes>
 
     </div>
