@@ -1,18 +1,19 @@
 
 import React, { useEffect , useState } from 'react'
 import { useSelector, useDispatch,  shallowEqual} from 'react-redux';
-import { fetchGames } from './../../redux/api';
-import PreLoader from './../Load/PreLoader';
+import { fetchGames } from '../../redux/api';
+import PreLoader from '../Load/PreLoader';
 import {useLocation} from 'react-router-dom';
+import style from './page.module.scss'
 
 
 
 
 
 
-const Test = ({text, game}) => {
+const Page = ({text, game}) => {
     const dispatch = useDispatch();
-    const games = useSelector(state => state.games.games);
+    const games = useSelector(state => state.games.games,shallowEqual);
     const location = useLocation();
     const [flug , setFlug] = useState(true)
     useEffect(()=>{
@@ -25,14 +26,21 @@ const Test = ({text, game}) => {
     useEffect(()=>{
         setFlug(!flug);
     },[games, location]);
+
+
+
   return (
-    <div>
-        <h2>{game}</h2>
-        <div>
+    <div className={style.pageList}>
+        <h2 className={style.gameTitle}>{game}</h2>
+        <div className={style.gameWrapper}>
         {
             flug?<PreLoader />:
-            games.map((game, index) => <div key={game.id}>№{index+1}: {game.name}
-                <img src={game.img} alt="" />
+            games.map((game, index) => <div 
+            className={style.gameItem}
+            key={game.id}>№{index+1}: {game.name}
+            <img style={{width: '100px', height: '100px' }} 
+            src={game.background_image} alt="alt" />
+ 
             </div>)
 
 
@@ -43,4 +51,4 @@ const Test = ({text, game}) => {
   )
 }
 
-export default Test
+export default Page

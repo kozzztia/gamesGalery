@@ -14,9 +14,20 @@ body {
 
 .App{
   padding: 20px;
-  width: 100%;
+  width:100%;
   height: auto;
   background: rgb(0,0,0);
   background: linear-gradient(115deg, rgba(0,0,0,1) 17%, var(--bg-decoration) 94%);
   color: var(--text-color);
+}
+.AppWrapper{
+  position: relative;
+  max-width: 1200px;
+  min-height: 110vh;
+  margin: 0 auto;
+}
+
+.active{
+  transition-duration: 0.2s;
+  transform: scale(1.5)
 }

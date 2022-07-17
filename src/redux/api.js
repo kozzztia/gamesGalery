@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { getGamesAction } from './store';
+import { getGamesAction, getCountAction } from './store';
 
 
 
@@ -18,8 +18,8 @@ export const fetchGames = (game) => {
             }
         })
 
-            .then(response => dispatch(getGamesAction(response.data.results)))
-        // .then(response => response.data.results.filter(item => console.log(item.genres[0].name)))
+            .then(response => dispatch(getGamesAction(response.data.results, getCountAction(response.data.count))))
+
 
     }
 }

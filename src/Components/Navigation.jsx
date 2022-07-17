@@ -1,9 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
+import style from './navigation.module.scss';
 const Navigation = () => {
+  console.log(style)
   return (
-    <div className='navigation'>
+    <div className={style.navigation}>
       <NavLink to='/'>indie</NavLink>
       <NavLink to='/action'>action</NavLink>
       <NavLink to='/strategy'>strategy</NavLink>
